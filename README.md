@@ -122,6 +122,3 @@ Prompts and transcriptions are genuinely different targets (mean word-level Jacc
 }
 ```
 
-## Acknowledgements
-
-Thanks to the Nubi speakers who contributed to Mozilla Common Voice, and to my thesis advisor at the University of Tübingen.
