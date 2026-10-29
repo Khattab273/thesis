@@ -10,7 +10,7 @@
 
 ## Overview
 
-This repository accompanies my bachelor's thesis on automatic speech recognition (ASR) for **Nubi** (ISO 639-3: `kcn`), a severely low-resource Arabic-lexifier creole spoken in Uganda and Kenya. The thesis fine-tunes XLS-R 300M on spontaneous Nubi speech to find out how much transcribed data the model needs before it learns anything useful, and tests whether a two-phase curriculum can lower that amount.
+This repository accompanies my bachelor's thesis on automatic speech recognition (ASR) for **Nubi** (ISO 639-3: `kcn`), a severely low-resource Arabic-lexifier creole spoken in Uganda and Kenya. The thesis fine-tunes XLS-R 300M on spontaneous Nubi speech to find out how much transcribed data the model needs before it learns anything useful, and tests whether a two-phase curriculum can lower that amount. The curriculum follows the easy-to-hard principle of Bengio et al. (2009); in this low-resource setting it made results worse, not better, suggesting the principle depends heavily on how "easy" is defined.
 
 ---
 
@@ -22,7 +22,7 @@ This repository accompanies my bachelor's thesis on automatic speech recognition
 ## Key Findings
 
 - **A steep data threshold lies between 2.97 h and 5.94 h.** At 1 h the model fails completely (WER 1.0); at 2.97 h it learns only marginally; at 5.94 h error rates drop substantially.
-- **The curriculum did not help.** At 2.97 h, the curriculum model performed worse than direct fine-tuning on both WER and CER. Phase 1 drove training loss down while validation WER stayed at 1.0, so the model fit the prompts without learning anything that transferred.
+- **The curriculum did not help, which runs counter to the easy-to-hard hypothesis of Bengio et al. (2009).** Bengio et al. argued that training on easier examples first acts as a continuation method that guides optimization toward better minima. I tested a curriculum built on that principle: short prompt labels first, then full transcriptions. At 2.97 h it performed worse than direct fine-tuning on both WER (0.760 vs 0.629) and CER (0.264 vs 0.230). Phase 1 drove training loss down while validation WER stayed at 1.0, so the "easy" phase taught the model nothing that transferred and used up epochs that direct fine-tuning spent learning. This adds a low-resource ASR case to the evidence (e.g. Wu et al., 2021) that curriculum benefits are not universal and depend on how "easy" is defined.
 - **Vowel-height confusions dominate the errors** (a↔e, i→e, u↔o, i↔u) in every condition, including the largest data size and the curriculum model.
 - **Conclusion:** data quantity is the main bottleneck for Nubi ASR. Curricula grounded in Nubi phonology are a more promising direction than ones based on utterance length or label complexity.
 
