@@ -8,7 +8,6 @@
 | **Model** | XLS-R 300M (`facebook/wav2vec2-xls-r-300m`) |
 | **Language** | Nubi (ISO 639-3: `kcn`) |
 
----
 
 ## Research Questions
 
