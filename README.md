@@ -8,10 +8,6 @@
 | **Model** | XLS-R 300M (`facebook/wav2vec2-xls-r-300m`) |
 | **Language** | Nubi (ISO 639-3: `kcn`) |
 
-## Overview
-
-This repository accompanies my bachelor's thesis on automatic speech recognition (ASR) for **Nubi** (ISO 639-3: `kcn`), a severely low-resource Arabic-lexifier creole spoken in Uganda and Kenya. The thesis fine-tunes XLS-R 300M on spontaneous Nubi speech to find out how much transcribed data the model needs before it learns anything useful, and tests whether a two-phase curriculum can lower that amount. The curriculum follows the easy-to-hard principle of Bengio et al. (2009); in this low-resource setting it made results worse, not better, suggesting the principle might heavily depend on what it is applied to.
-
 ---
 
 ## Research Questions
