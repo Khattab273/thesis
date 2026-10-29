@@ -2,7 +2,7 @@
 
 **B.A. Thesis in Computational Linguistics, University of Tübingen**
 **Author:** Mohamed Khattab
-
+Grade Awarded:1.3 ("sehr gut" / very good) on the German scale, where 1.0 is the best grade and 4.0 the lowest pass.
 This repository accompanies my bachelor's thesis on automatic speech recognition (ASR) for **Nubi** (ISO 639-3: `kcn`), a severely low-resource Arabic-lexifier creole spoken in Uganda and Kenya. The thesis fine-tunes XLS-R 300M on spontaneous Nubi speech to find out how much transcribed data the model needs before it learns anything useful, and tests whether a two-phase curriculum can lower that amount.
 
 ---
